@@ -52,13 +52,13 @@ public class Servicio {
         Integer tiempoComprometidoMinimo = tiempoComprometido.get(indiceTiempoComprometidoMinimo);
         Integer tiempoATrabajar;
 
-        if (tiempoComprometidoMinimo > tiempoActual + tiempoDemoraAdmitida) {
+        if (tiempoComprometidoMinimo > (tiempoActual + tiempoDemoraAdmitida)) {
             cantidadPedidosPerdidos++;
             return;
         }
 
         if (tiempoComprometidoMinimo <= tiempoActual) {
-            sumatoriaTiempoOcioso += tiempoActual - tiempoComprometidoMinimo;
+            sumatoriaTiempoOcioso = sumatoriaTiempoOcioso + (tiempoActual - tiempoComprometidoMinimo);
             tiempoATrabajar = tiempoActual;
         } else {
             tiempoATrabajar = tiempoComprometidoMinimo;
@@ -68,10 +68,10 @@ public class Servicio {
     }
 
     public void calcularPorcentajeTiempoOcioso(Integer tiempoActual) {
-        System.out.println(sumatoriaTiempoOcioso/tiempoActual * 100);
+        System.out.println(Math.round((double) sumatoriaTiempoOcioso / tiempoComprometido.size() / tiempoActual * 100d * 100d) / 100d);
     }
 
     public void calcularPorcentajePedidosPerdidos(Integer cantidadPedidos) {
-        System.out.println(cantidadPedidosPerdidos/cantidadPedidos * 100);
+        System.out.println(Math.round((double) cantidadPedidosPerdidos / cantidadPedidos * 100d * 100d) / 100d);
     }
 }

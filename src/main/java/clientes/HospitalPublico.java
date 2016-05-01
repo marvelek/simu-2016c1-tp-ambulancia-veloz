@@ -8,6 +8,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class HospitalPublico extends Cliente {
 
     public Integer getIntervaloProximoPedido() {
-        return ThreadLocalRandom.current().nextInt(2, 10 + 1); //Implementar posta
+        return ThreadLocalRandom.current().nextInt(0, 10 + 1); //Implementar posta
     }
 }
