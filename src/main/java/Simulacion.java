@@ -12,6 +12,12 @@ public class Simulacion {
      * Constantes, expresadas en minutos
      */
     private final Integer T_FINAL = 1000000;
+    private final Integer T_DEMORA_ADMITIDA_ALTA_COMPLEJIDAD = 30;
+    private final Integer T_DEMORA_ADMITIDA_BAJA_COMPLEJIDAD = 180;
+    private final Integer T_DEMORA_ADMITIDA_MOTO = 10;
+    private final Integer T_SERVICIO_ALTA_COMPLEJIDAD = 45;
+    private final Integer T_SERVICIO_BAJA_COMPLEJIDAD = 30;
+    private final Integer T_SERVICIO_MOTO = 14;
 
     /**
      * Variables de tiempo
@@ -37,9 +43,9 @@ public class Simulacion {
     Cliente clinicaPrivada = new ClinicaPrivada();
 
     public Simulacion(Integer ambulanciasAlta, Integer ambulanciasBaja, Integer motos) {
-        servicioAltaComplejidad = new Servicio(30, 45, ambulanciasAlta);
-        servicioBajaComplejidad = new Servicio(180, 30, ambulanciasBaja);
-        servicioMoto = new Servicio(0, 15, motos);
+        servicioAltaComplejidad = new Servicio(T_DEMORA_ADMITIDA_ALTA_COMPLEJIDAD, T_SERVICIO_ALTA_COMPLEJIDAD, ambulanciasAlta);
+        servicioBajaComplejidad = new Servicio(T_DEMORA_ADMITIDA_BAJA_COMPLEJIDAD, T_SERVICIO_BAJA_COMPLEJIDAD, ambulanciasBaja);
+        servicioMoto = new Servicio(T_DEMORA_ADMITIDA_MOTO, T_SERVICIO_MOTO, motos);
     }
 
     private void procesarPedido() {
