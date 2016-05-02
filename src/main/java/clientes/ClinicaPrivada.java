@@ -1,5 +1,6 @@
 package clientes;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -8,6 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ClinicaPrivada extends Cliente{
 
     public Integer getIntervaloProximoPedido() {
-        return ThreadLocalRandom.current().nextInt(0, 10 + 1); //Implementar posta
+        Random random = new Random();
+        return (int) Math.abs(Math.round(random.nextGaussian()*2 + 10));
     }
 }

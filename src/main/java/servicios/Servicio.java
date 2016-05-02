@@ -3,6 +3,7 @@ package servicios;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -35,7 +36,8 @@ public class Servicio {
     }
 
     private Integer getTiempoViaje() {
-        return ThreadLocalRandom.current().nextInt(2, 10 + 1); //Implementar posta
+        double random = Math.random();
+        return (int )Math.floor((15/35 + random)*35);
     }
 
     private Integer getIndiceTiempoComprometidoMinimo() {

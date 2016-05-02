@@ -15,8 +15,21 @@ public class TestAmbulanciaVeloz extends TestCase {
 
     @Test
     public void testCasoActual() {
-        simulacion = new Simulacion(7, 9, 3);
+        simulacion = new Simulacion(5, 7, 1);
         simulacion.iniciarSimulacion();
     }
+
+    @Test
+    public void testPeorCaso() {
+        simulacion = new Simulacion(1, 1, 1);
+        simulacion.iniciarSimulacion();
+    }
+
+    @Test
+    public void testMejorCaso() {
+        simulacion = new Simulacion(7, 9, 2);
+        simulacion.iniciarSimulacion();
+    }
+
 
 }
